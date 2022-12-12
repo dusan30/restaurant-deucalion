@@ -750,7 +750,7 @@ RESERVATION SECTION
   font-weight: bold;
 }
 
-.mu-reservation-content p {
+.mu-reservation-content > p:first-child {
   color: #fff;
   letter-spacing: 0.5px;
   padding: 0 50px;
