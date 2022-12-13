@@ -654,8 +654,8 @@ window.onload = function () {
    // FOOTER - START
   let socialNetworksHref1 = ["https://www.facebook.com/", "https://twitter.com/", "https://www.instagram.com/", "https://www.youtube.com/"];
   let socialNetworksIcons1 = ["facebook", "twitter", "instagram", "youtube"];
-  let socialNetworksHref2 = ["sitemap.xml", "#"];
-  let socialNetworksIcons2 = ["sitemap", "file"];
+  let socialNetworksHref2 = ["sitemap.xml", "rss.xml", "#"];
+  let socialNetworksIcons2 = ["sitemap", "rss", "file"];
   function displayFooter(){
     let html = "";
 

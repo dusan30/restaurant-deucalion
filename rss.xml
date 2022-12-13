@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+ <channel>
+ <item>
+ <title>New meal in our restaurant!</title>
+ <link> https://dusan30.github.io/restaurant-deucalion/ </link>
+ <description> Our restaurant has added a new dish. Come and see for yourself what kind of specialty it is.</description>
+ </item>
+ <item>
+ <title> Award for the best chef! </title>
+ <link> https://dusan30.github.io/restaurant-deucalion/ </link>
+ <description> The award for the best chef in Spain was awarded. See which of our chefs received this award.</description>
+ </item>
+ </channel>
+</rss>
