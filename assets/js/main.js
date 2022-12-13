@@ -41,6 +41,21 @@ window.onload = function () {
   document.querySelector(".mu-counter-nav").innerHTML = displayCounter();
 
 // DYNAMIC COUNTER SECTION - END
+let offers = ["Delicious food", "Pleasant atmosphere", "Beautiful sea view", "Music program every weekend from 6 pm"];
+
+function displayOffers(){
+  let html = "";
+  for(let i = 0; i < offers.length; i++){
+    html += `<li>${offers[i]}</li>`;
+  }
+  return html;
+}
+document.querySelector("#restaurantOffers").innerHTML = displayOffers();
+// DYNAMIC OFFERS - START
+
+
+
+// DYNAMIC OFFERS - END
 
   // DYNAMIC MENU NAMES - START
   var menuText = ["Pizza", "Desserts", "Drinks"];
