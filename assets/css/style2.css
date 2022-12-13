@@ -59,6 +59,7 @@
     align-items: center;
     flex-direction: column;
     gap: 25px;
+    cursor: pointer;
 }
 
 .d-none {

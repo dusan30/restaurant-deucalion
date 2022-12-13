@@ -1,21 +1,9 @@
 window.onload = function () {
-  // Dinamicko ispisivanje navigacije - POCETAK
-  var navText = [
-    "ABOUT US",
-    "MENU",
-    "RESERVATION",
-    "GALLERY",
-    "OUR CHEFS",
-    "CONTACT",
-  ];
-  var navHref = [
-    "about-us",
-    "restaurant-menu",
-    "reservation",
-    "gallery",
-    "chef",
-    "contact",
-  ];
+
+  // DYNAMIC NAVIGATION MENU - START
+  var navText = ["ABOUT US","MENU", "RESERVATION", "GALLERY", "OUR CHEFS", "CONTACT", "AUTHOR"];
+
+  var navHref = ["about-us", "restaurant-menu", "reservation", "gallery", "chef", "contact", "author"];
 
   function displayNav() {
     let html = `<li><a href="index.html">HOME</a></li>`;
@@ -27,9 +15,9 @@ window.onload = function () {
     return html;
   }
   document.querySelector("#top-menu").innerHTML = displayNav();
-  // Dinamicko ispisivanje navigacije - KRAJ
+  // DYNAMIC NAVIGATION MENU - END
 
-  // Dinamicko ispisavanje counter sekcije - POCETAK
+  // DYNAMIC COUNTER SECTION - START
 
   var counterSpan = ["Delicios", "Fresh", "Satisfied"];
   var dataCount = [50, 20, 3000];
@@ -48,13 +36,13 @@ window.onload = function () {
                     </li>
                     `;
     }
-    // console.log(html);
     return html;
   }
   document.querySelector(".mu-counter-nav").innerHTML = displayCounter();
 
-  // Dinamicko ispisavanje counter sekcije - KRAJ
-  // Dinamicko ispisivanje naziva menija - POCETAK
+// DYNAMIC COUNTER SECTION - END
+
+  // DYNAMIC MENU NAMES - START
   var menuText = ["Pizza", "Desserts", "Drinks"];
 
   function displayMenu() {
@@ -64,14 +52,14 @@ window.onload = function () {
         menuText[i]
       }</a></li>`;
     }
-    // console.log(html);
     return html;
   }
   document.querySelector(".nav-tabs").innerHTML = displayMenu();
-  // Dinamicko ispisivanje naziva menija - KRAJ
+  // DYNAMIC MENU NAMES - END
 
-  // Dinamicko ispisivanje Menu Items - POCETAK
+  // DYNAMIC MENU ITEMS - START
   var ids = ["meat", "pizza", "desserts", "drinks"];
+
   var menuSrc = [
     "1.jpg",
     "2.jpg",
@@ -88,8 +76,9 @@ window.onload = function () {
     "13.jpg",
     "14.jpg",
     "15.jpg",
-    "16.jpg",
+    "16.jpg"
   ];
+
   var menuH4AndAlt = [
     "Burger With Lettuce and Cheese",
     "Grilled Steak",
@@ -106,8 +95,8 @@ window.onload = function () {
     "Jacob's Creek Reserve wine",
     "Heineken Lager Beer",
     "Brazilian coffee",
-    "Tea",
-  ];
+    "Tea"];
+
   var menuPrice = [
     "7.50",
     "15.00",
@@ -124,8 +113,8 @@ window.onload = function () {
     "27.00",
     "5.50",
     "4.00",
-    "2.00",
-  ];
+    "2.00"];
+
   var menuDescription = [
     "A classic bacon burger with lettuce, tomato and a good amount of mayonnaise.",
     "Everyone knows about grilled steak. Try it and see how juicy and tasty the grilled steak is.",
@@ -142,8 +131,7 @@ window.onload = function () {
     "Jacob's Creek Reserve Cabernet Sauvignon is a premium full-bodied wine.",
     "Heineken Lager Beer with 5% alcohol. Always cold and refreshing.",
     "Brazilian coffee with a chocolaty roast taste. This coffee has a wonderful aroma.",
-    "Fruit tea, mint tea, chamomile tea. Honey and sugar are served with tea.",
-  ];
+    "Fruit tea, mint tea, chamomile tea. Honey and sugar are served with tea."];
 
   function displayMenuItems() {
     let html = "";
@@ -200,16 +188,13 @@ window.onload = function () {
                   `;
     }
     return html;
-    // console.log(html);
   }
 
   document.querySelector("#menuItems").innerHTML = displayMenuItems();
-  document
-    .querySelector("#menuItems")
-    .firstElementChild.classList.add("in", "active");
-  // Dinamicko ispisivanje Menu Items - KRAJ
+  document.querySelector("#menuItems").firstElementChild.classList.add("in", "active");
+// DYNAMIC MENU ITEMS - END
 
-  // Dinamicko ispisivanje option-a - POCETAK
+// DYNAMIC OPTION TAGS - START
   function displayOptionTags() {
     let html = `
               <option value="0">How Many?</option>
@@ -218,34 +203,40 @@ window.onload = function () {
     for (let i = 2; i < 11; i++) {
       html += `<option value="${i} People">${i} People</option>`;
     }
-    // console.log(html);
     return html;
   }
   document.querySelector("#select2").innerHTML = displayOptionTags();
-  // Dinamicko ispisivanje option-a - KRAJ
+ // DYNAMIC OPTION TAGS - END
 
-  // Regularni izrazi - Rezervacije - POCETAK
   let checkName = 0;
   let checkEmail = 0;
   let checkNumber = 0;
   let checkDate = 0;
+  let checkName2 = 0;
+  let checkGender2 = 0;
+  let checkEmail2 = 0;
+  let checkSubject2 = 0;
   let fullName = document.querySelector("#tbFullName");
   let email = document.querySelector("#eEmail");
   let number = document.querySelector("#select2");
-  console.log(number);
-  console.log(number.options);
-  console.log(number.options[number.options.selectedIndex]);
-  console.log(number.options[number.options.selectedIndex].value);
   let date = document.querySelector("#datepicker");
   let message = document.querySelector("#taMessage");
   var reservation = document.querySelector("#res");
+  let name2 = document.querySelector("#name");
+  let gender2 = document.getElementsByName("rbGender");
+  let email2 = document.querySelector("#email");
+  let subject2 = document.querySelector("#subject");
+  var contact2 = document.querySelector("#res2");
+
+// REGULAR EXPRESSIONS - START
   var regexFullName = /^[A-ZŠĐČĆŽ][a-zčćžšđ]{2,11}(\s[A-ZŠĐČĆŽ][a-zšđčćž]{2,15})+$/;
   var regexEmail = /^[a-z][\w\.]*\@[a-z0-9]{3,18}(\.[a-z]{3,5})?(\.[a-z]{2,3})$/;
   var regexSubject = /^[A-z]([A-z\d\.\,\s]){2,29}$/;
+   // REGULAR EXPRESSIONS - END
+
   document.querySelector("#btnReservation").addEventListener("click", makeAReservation);
 
   function makeAReservation() {
-    // console.log("Click");
 
     // Check fullName
     if (fullName.value == "") {
@@ -258,8 +249,7 @@ window.onload = function () {
       fullName.value = "";
       fullName.classList.remove("greenBorder");
       fullName.classList.add("redBorder");
-      fullName.nextElementSibling.textContent =
-        "Not a valid name. The first letter of the name and the last name must be a capital letter.";
+      fullName.nextElementSibling.textContent = "Not a valid name. The first letter of the name and the last name must be a capital letter.";
       fullName.nextElementSibling.classList.add("displayBlock");
       checkName = 1;
     } else {
@@ -269,6 +259,7 @@ window.onload = function () {
       fullName.nextElementSibling.classList.remove("displayBlock");
       checkName = 0;
     }
+
     // Check Email
     if (email.value == "") {
       email.classList.remove("greenBorder");
@@ -280,8 +271,7 @@ window.onload = function () {
       email.value = "";
       email.classList.remove("greenBorder");
       email.classList.add("redBorder");
-      email.nextElementSibling.textContent =
-        "Not a valid email address. (eg. somebody@example.com)";
+      email.nextElementSibling.textContent = "Not a valid email address. (eg. somebody@example.com)";
       email.nextElementSibling.classList.add("displayBlock");
       checkEmail = 1;
     } else {
@@ -292,7 +282,7 @@ window.onload = function () {
       checkEmail = 0;
     }
 
-    // Number
+    // Check Number
     if (number.options[number.options.selectedIndex].value == "0") {
       number.classList.remove("greenBorder");
       number.classList.add("redBorder");
@@ -322,6 +312,7 @@ window.onload = function () {
       checkDate = 0;
     }
 
+    // Final Check - RESERVATION
     if (checkName + checkEmail + checkNumber + checkDate == 0) {
       console.log("Reservation successful.");
       reservation.classList.remove("hideText");
@@ -332,7 +323,9 @@ window.onload = function () {
       return false;
     }
   }
+ 
 
+  // DYNAMIC GALLERY IMAGES - START
   function displayGalleryImages() {
     var gallerySrc = [
       "1.jpg",
@@ -373,17 +366,19 @@ window.onload = function () {
       </div>`;
     }
     html += `</div>`;
-    // /console.log(html);
     return html;
   }
-  //console.log(document.querySelector(".mu-gallery-body"));
-  document.querySelector(".mu-gallery-content").innerHTML =
-    displayGalleryImages();
-  var slike = document.querySelectorAll(".mu-imglink");
+ 
+  document.querySelector(".mu-gallery-content").innerHTML = displayGalleryImages();
+  // DYNAMIC GALLERY IMAGES - END
+
+  // VIEW IMAGES IN A LARGER FORMAT - START
+  var pictures = document.querySelectorAll(".mu-imglink");
   
-  // Dohvatio sam div sa ID-jem overlay koji sluzi za prikazivanje slika u krupnom planu
-  // mainImage je div koji prikazuje sliku na koju sam kliknuo
-  // otherImage - div koji prikazuje slike iz galerije
+  // Dohvatio sam div sa ID-jem overlay koji sluzi za prikazivanje slika u krupnom planu.
+  // mainImage je div koji prikazuje sliku na koju sam kliknuo.
+  // otherImage - div koji prikazuje ostale slike iz galerije.
+
   let overlay = document.querySelector("#overlay");
   let mainImage = document.querySelector(".main-image");
   let otherImage = document.querySelector(".other-images");
@@ -396,15 +391,7 @@ window.onload = function () {
     relatedImages.forEach((image) => {
       image.addEventListener("click", (event) => {
         let imagePath = event.target;
-        let imageIndex =
-          Number(
-            imagePath.src
-              .substring(imagePath.src.lastIndexOf("/"))
-              .split(".")[0]
-              .substring(1)
-          ) - 1;
-
-        
+        let imageIndex = Number(imagePath.src.substring(imagePath.src.lastIndexOf("/")).split(".")[0].substring(1)) - 1;
         showImage(imagePath, imageIndex);
       });
     });
@@ -412,7 +399,7 @@ window.onload = function () {
 
   /**
    * Funkcija za prikazivanje slike u krupnom planu.
-   * Takodje funkcija prikazuje i prethodnu i sledecu sliku u odnosu na trenutnu.
+   * Takodje funkcija koja prikazuje i prethodnu i sledecu sliku u odnosu na trenutnu.
    * 
    * 
    * @param {div} imgContainer 
@@ -420,9 +407,8 @@ window.onload = function () {
    */
   function showImage(imgContainer, index) {
     let img;
-
-    // Napravljen je if/else blok zbog prvog klika koji se odnosi div (klikcemo na div, ne na sliku), 
-    // dok ce klikovi unutar overlay-a div-a biti klikovi koji direktno uticu na img tag.
+    // Napravljen je if/else blok zbog prvog klika koji se odnosi div (klikcemo na div, ne na sliku),.
+    // Ostali klikovi ce unutar overlay-a div-a biti klikovi koji direktno uticu na img tag.
     if (!imgContainer.src) {
       img = imgContainer.children[0];
     } else {
@@ -431,33 +417,33 @@ window.onload = function () {
     overlay.classList.add("overlay");
     overlay.classList.remove("d-none");
 
-    mainImage.innerHTML = `<img src="${img.src}" alt=${img.alt} width=400 />`;
+    mainImage.innerHTML = `<img src="${img.src}" alt=${img.alt} width=500 />`;
 
     let html = "";
 
-    // Ova dva if-a proveravaju da li postoji prethodna odnosno sledeca slika
-    // Ako jedno od ta dva ne postoji nece se ne i ispisati
-    if (slike[index - 1]) {
+    // Ova dva if-a proveravaju da li postoji prethodna, odnosno sledeca slika.
+    // Ako jedno od ta dva ne postoji, nece se ni ispisati.
+    if (pictures[index - 1]) {
       html += `<img class="related-images" src="${
-        slike[index - 1].children[0].src
-      }" alt=${slike[index - 1].children[0].alt} width=150 />`;
+        pictures[index - 1].children[0].src
+      }" alt=${pictures[index - 1].children[0].alt} width=150 />`;
     }
 
-    if (slike[index + 1]) {
+    if (pictures[index + 1]) {
       html += `<img class="related-images" src="${
-        slike[index + 1].children[0].src
-      }" alt=${slike[index + 1].children[0].alt} width=150 />`;
+        pictures[index + 1].children[0].src
+      }" alt=${pictures[index + 1].children[0].alt} width=150 />`;
     }
 
     otherImage.innerHTML = html;
     refreshImages();
   }
 
-  for (let i = 0; i < slike.length; i++) {
-    $(slike[i]).click(function (event) {
+  for (let i = 0; i < pictures.length; i++) {
+    $(pictures[i]).click(function (event) {
       event.preventDefault();
 
-      showImage(slike[i], i);
+      showImage(pictures[i], i);
       refreshImages();
     });
   }
@@ -466,10 +452,10 @@ window.onload = function () {
     event.target.classList.remove("overlay");
     event.target.classList.add("d-none");
   });
-  //console.log(document.querySelectorAll(".mu-imglink"));
-  // console.log(document.querySelector(".mu-imglink").nextSibling);
+  // VIEW IMAGES IN A LARGER FORMAT - END
+  
 
-  // Dinamicko ispisivanje Testimonials - POCETAK
+  // DYNAMIC TESTIMONIALS - POCETAK
   var customerSay = [
     "The food is great! The staff working in the restaurant is phenomenal. I can't wait to come again!",
     "What a beautiful view of the sea, relaxed atmosphere, delicious food, hospitable staff. Everything is on level! All praise for this restaurant!",
@@ -494,10 +480,9 @@ window.onload = function () {
                   `;
     }
     html += `</ul>`;
-    // console.log(html);
     return html;
   }
-  // jQuery za prikazivanje testimonial-a
+  // jQuery FOR TESTIMONIAL - START
   document.querySelector("#testimonialList").innerHTML = displayTestimonials();
   jQuery(".mu-testimonial-slider").slick({
     dots: true,
@@ -507,20 +492,22 @@ window.onload = function () {
     speed: 500,
     cssEase: "linear",
   });
+   // jQuery FOR TESTIMONIAL - END
 
-  // Dinamicko ispisivanje Testimonials - KRAJ
+// DYNAMIC TESTIMONIALS - END
 
-  // Dinamicko ispisivanje radnika - POCETAK
+  // DYNAMIC CHEFS - START
   var chefName = [
     "Filip Najdanović",
     "Dušan Novicić",
-    "Mima Lazarević",
+    "Nevena Radovanović",
     "Novak Nešković",
     "Milan Ivić",
     "Vlada Ivančević",
     "Ivan Ivančević",
   ];
   var chefSrc = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"];
+
   var chefJob = [
     "Head Chef",
     "Pizza Chef",
@@ -550,18 +537,15 @@ window.onload = function () {
   }
   document.querySelector(".mu-chef-nav").innerHTML = displayChefs();
 
-  let checkName2 = 0;
-  let checkGender2 = 0;
-  let checkEmail2 = 0;
-  let checkSubject2 = 0;
-  let name2 = document.querySelector("#name");
-  let gender = document.getElementsByName("rbGender");
-  let email2 = document.querySelector("#email");
-  let subject2 = document.querySelector("#subject");
-  var contact2 = document.querySelector("#res2");
+  // DYNAMIC CHEFS - END
+
+  // CONTACT - START
+
+  
   document.querySelector("#btnContact").addEventListener("click", sendAMessage);
 
   function sendAMessage(){
+
     // Check fullName
     if (name2.value == "") {
       name2.classList.remove("greenBorder");
@@ -583,27 +567,28 @@ window.onload = function () {
       name2.nextElementSibling.classList.remove("displayBlock");
       checkName2 = 0;
     }
-    console.log(gender);
+
+    // Check Gender
     var genderValue = "";
-    for(let i = 0; i < gender.length; i++){
-        if(gender[i].checked){
-          genderValue = gender[i].value;
+    for(let i = 0; i < gender2.length; i++){
+        if(gender2[i].checked){
+          genderValue = gender2[i].value;
             break;
         }
      }
-     console.log(gender[0].parentElement.parentElement.parentElement.nextElementSibling);
+
     if(genderValue == ""){
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("greenBorder");
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("redBorder");
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.textContent = "You must select at least one option.";
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("displayBlock");
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("greenBorder");
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("redBorder");
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.textContent = "You must select at least one option.";
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("displayBlock");
       checkGender2 = 1;
     }
     else{
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("redBorder");
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("greenBorder");
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.textContent = "";
-      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("displayBlock");
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("redBorder");
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("greenBorder");
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.textContent = "";
+      gender2[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("displayBlock");
       checkGender2 = 0;
     }
 
@@ -630,7 +615,7 @@ window.onload = function () {
       checkEmail2 = 0;
     }
 
-    // Check Email
+    // Check Subject
     if (subject2.value == "") {
       subject2.classList.remove("greenBorder");
       subject2.classList.add("redBorder");
@@ -653,6 +638,7 @@ window.onload = function () {
       checkSubject2 = 0;
     }
 
+    // Final Check - CONTACT
     if (checkName2 + checkGender2 + checkEmail2 + checkSubject2 == 0) {
       console.log("Message was sent.");
       contact2.classList.remove("hideText");
@@ -663,7 +649,9 @@ window.onload = function () {
       return false;
     }
   }
+   // CONTACT - END
 
+   // FOOTER - START
   let socialNetworksHref1 = ["https://www.facebook.com/", "https://twitter.com/", "https://www.instagram.com/", "https://www.youtube.com/"];
   let socialNetworksIcons1 = ["facebook", "twitter", "instagram", "youtube"];
   let socialNetworksHref2 = ["sitemap.xml", "#"];
@@ -686,16 +674,28 @@ window.onload = function () {
 
   document.querySelector("#socialNetworks").innerHTML = displayFooter();
 
+  // FOOTER - END
 
+  // AUTHOR SKILLS - START
 
+  let skills = ["HTML", "CSS", "Javascript", "Bootstrap", "jQuery", "Materialize", "PHP", "SQL", "C", "C#"];
+  function displaySkills(){
+    let html = "";
+    for(let i = 0; i < skills.length; i++){
+      html += `<li>${skills[i]}</li>`;
+    }
+    return html;
+  }
+  document.querySelector("#authorSkills").innerHTML = displaySkills();
 
+  // AUTHOR SKILLS - END
 
-
-
+  // SCROLL to TOP - START
   $(document).ready(function () {
     $("a[href=#]").click(function () {
       $.scrollTo(100, "slow");
       return false;
     });
   });
+  // SCROLL to TOP - END
 };
