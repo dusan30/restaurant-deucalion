@@ -163,7 +163,7 @@ window.onload = function () {
                           <li>
                               <div class="media">
                                   <div class="media-left">
-                                      <a href="#">
+                                      <a href="#mu-restaurant-menu">
                                           <img class="media-object border-orange" src="assets/img/my-menu/${
                                             menuSrc[4 * i + 2 * k + j]
                                           }" alt="${
@@ -172,7 +172,7 @@ window.onload = function () {
                                       </a>
                                   </div>
                                   <div class="media-body">
-                                      <h4 class="media-heading"><a href="#">${
+                                      <h4 class="media-heading"><a href="#mu-restaurant-menu">${
                                         menuH4AndAlt[4 * i + 2 * k + j]
                                       }</a></h4>
                                       <span class="mu-menu-price">&euro;${
@@ -239,13 +239,10 @@ window.onload = function () {
   let date = document.querySelector("#datepicker");
   let message = document.querySelector("#taMessage");
   var reservation = document.querySelector("#res");
-  var regexFullName =
-    /^[A-ZŠĐČĆŽ][a-zčćžšđ]{2,11}(\s[A-ZŠĐČĆŽ][a-zšđčćž]{2,15})+$/;
-  var regexEmail =
-    /^[a-z][\w\.]*\@[a-z0-9]{3,18}(\.[a-z]{3,5})?(\.[a-z]{2,3})$/;
-  document
-    .querySelector("#btnReservation")
-    .addEventListener("click", makeAReservation);
+  var regexFullName = /^[A-ZŠĐČĆŽ][a-zčćžšđ]{2,11}(\s[A-ZŠĐČĆŽ][a-zšđčćž]{2,15})+$/;
+  var regexEmail = /^[a-z][\w\.]*\@[a-z0-9]{3,18}(\.[a-z]{3,5})?(\.[a-z]{2,3})$/;
+  var regexSubject = /^[A-z]([A-z\d\.\,\s]){2,29}$/;
+  document.querySelector("#btnReservation").addEventListener("click", makeAReservation);
 
   function makeAReservation() {
     // console.log("Click");
@@ -414,7 +411,7 @@ window.onload = function () {
   }
 
   /**
-   * Funkcija za prikazivanje slike u krupnom planu
+   * Funkcija za prikazivanje slike u krupnom planu.
    * Takodje funkcija prikazuje i prethodnu i sledecu sliku u odnosu na trenutnu.
    * 
    * 
@@ -476,9 +473,9 @@ window.onload = function () {
   var customerSay = [
     "The food is great! The staff working in the restaurant is phenomenal. I can't wait to come again!",
     "What a beautiful view of the sea, relaxed atmosphere, delicious food, hospitable staff. Everything is on level! All praise for this restaurant!",
-    "I can say that I am very satisfied with the food and the ambience in the restaurant. The prices are very affordable, the location of the restaurant is in a great place. If I come to Barcelona again, I will definitely visit this restaurant at least one more time.",
+    "I can say that I am very satisfied with the food and the ambience in the restaurant. The prices are very affordable, the location of the restaurant is in a great place. If I come to Barcelona again, I will definitely visit this restaurant at least one more time."
   ];
-  var customerName = ["Ben White", "Enrique Pique", "Serena Maddison"];
+  var customerName = ["Ben White", "Alvaro Pique", "Serena Maddison"];
 
   function displayTestimonials() {
     let html = `<ul class="mu-testimonial-slider">`;
@@ -552,6 +549,127 @@ window.onload = function () {
     return html;
   }
   document.querySelector(".mu-chef-nav").innerHTML = displayChefs();
+
+  let checkName2 = 0;
+  let checkGender2 = 0;
+  let checkEmail2 = 0;
+  let checkSubject2 = 0;
+  let name2 = document.querySelector("#name");
+  let gender = document.getElementsByName("rbGender");
+  let email2 = document.querySelector("#email");
+  let subject2 = document.querySelector("#subject");
+  var contact2 = document.querySelector("#res2");
+  document.querySelector("#btnContact").addEventListener("click", sendAMessage);
+
+  function sendAMessage(){
+    // Check fullName
+    if (name2.value == "") {
+      name2.classList.remove("greenBorder");
+      name2.classList.add("redBorder");
+      name2.nextElementSibling.textContent = "This field cannot be empty.";
+      name2.nextElementSibling.classList.add("displayBlock");
+      checkName2 = 1;
+    } else if (!regexFullName.test(name2.value)) {
+      name2.value = "";
+      name2.classList.remove("greenBorder");
+      name2.classList.add("redBorder");
+      name2.nextElementSibling.textContent = "Not a valid name. The first letter of the name and the last name must be a capital letter.";
+        name2.nextElementSibling.classList.add("displayBlock");
+        checkName2 = 1;
+    } else {
+      name2.classList.remove("redBorder");
+      name2.classList.add("greenBorder");
+      name2.nextElementSibling.textContent = "";
+      name2.nextElementSibling.classList.remove("displayBlock");
+      checkName2 = 0;
+    }
+    console.log(gender);
+    var genderValue = "";
+    for(let i = 0; i < gender.length; i++){
+        if(gender[i].checked){
+          genderValue = gender[i].value;
+            break;
+        }
+     }
+     console.log(gender[0].parentElement.parentElement.parentElement.nextElementSibling);
+    if(genderValue == ""){
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("greenBorder");
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("redBorder");
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.textContent = "You must select at least one option.";
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("displayBlock");
+      checkGender2 = 1;
+    }
+    else{
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("redBorder");
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.add("greenBorder");
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.textContent = "";
+      gender[0].parentElement.parentElement.parentElement.nextElementSibling.classList.remove("displayBlock");
+      checkGender2 = 0;
+    }
+
+    // Check Email
+    if (email2.value == "") {
+      email2.classList.remove("greenBorder");
+      email2.classList.add("redBorder");
+      email2.nextElementSibling.textContent = "This field cannot be empty.";
+      email2.nextElementSibling.classList.add("displayBlock");
+      checkEmail2 = 1;
+    } else if (!regexEmail.test(email2.value)) {
+      email2.value = "";
+      email2.classList.remove("greenBorder");
+      email2.classList.add("redBorder");
+      email2.nextElementSibling.textContent =
+        "Not a valid email address. (eg. somebody@example.com)";
+        email2.nextElementSibling.classList.add("displayBlock");
+      checkEmail2 = 1;
+    } else {
+      email2.classList.remove("redBorder");
+      email2.classList.add("greenBorder");
+      email2.nextElementSibling.textContent = "";
+      email2.nextElementSibling.classList.remove("displayBlock");
+      checkEmail2 = 0;
+    }
+
+    // Check Email
+    if (subject2.value == "") {
+      subject2.classList.remove("greenBorder");
+      subject2.classList.add("redBorder");
+      subject2.nextElementSibling.textContent = "This field cannot be empty.";
+      subject2.nextElementSibling.classList.add("displayBlock");
+      checkSubject2 = 1;
+    } else if (!regexSubject.test(subject2.value)) {
+      subject2.value = "";
+      subject2.classList.remove("greenBorder");
+      subject2.classList.add("redBorder");
+      subject2.nextElementSibling.textContent =
+        "The subject field must start with a letter and have between 3 and 30 characters..";
+        subject2.nextElementSibling.classList.add("displayBlock");
+        checkSubject2 = 1;
+    } else {
+      subject2.classList.remove("redBorder");
+      subject2.classList.add("greenBorder");
+      subject2.nextElementSibling.textContent = "";
+      subject2.nextElementSibling.classList.remove("displayBlock");
+      checkSubject2 = 0;
+    }
+
+    if (checkName2 + checkGender2 + checkEmail2 + checkSubject2 == 0) {
+      console.log("Message was sent.");
+      contact2.classList.remove("hideText");
+      contact2.classList.add("showText");
+    } else {
+      contact2.classList.remove("showText");
+      contact2.classList.add("hideText");
+      return false;
+    }
+
+  }
+
+
+
+
+
+
 
   $(document).ready(function () {
     $("a[href=#]").click(function () {

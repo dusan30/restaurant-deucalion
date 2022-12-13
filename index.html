@@ -1088,44 +1088,48 @@
                     <form id="ajax-contact" method="post" action="mailer.php" class="mu-contact-form">
                       <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
+                        <p class="pErrors"></p>
                       </div>
                       <div class="form-check">
                         <label for="name">Gender</label>
                         <div class="genders">
                           <div class="gender">
                             <span>Male</span>
-                            <input type="radio" class="form-check-input" id="rbMale" name="rbGender" required />
+                            <input type="radio" class="form-check-input" id="rbMale" name="rbGender" value="M" />
                           </div>
                           <div class="gender">
                             <span>Female</span>
-                            <input type="radio" class="form-check-input" id="rbFemale" name="rbGender" required />
-                          </div>
-                        </div>
-                        <div class="genders">
-                          <div class="gender">
-                            <span>Male</span>
-                            <input type="checkbox" class="form-check-input" id="rbMale" name="rbGender" required />
-                          </div>
-                          <div class="gender">
-                            <span>Female</span>
-                            <input type="checkbox" class="form-check-input" id="rbFemale" name="rbGender" required />
+                            <input type="radio" class="form-check-input" id="rbFemale" name="rbGender" value="F" />
                           </div>
                         </div>
                       </div>
+                      <p class="pErrors"></p>
                       <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        <p class="pErrors"></p>
                       </div>                      
                       <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" />
+                        <p class="pErrors"></p>
                       </div>
                       <div class="form-group">
                         <label for="message">Message</label>                        
-                        <textarea class="form-control" id="message" name="message"  cols="30" rows="10" placeholder="Type Your Message" required></textarea>
-                      </div>                      
-                      <button type="submit" class="mu-send-btn">Send Message</button>
+                        <textarea class="form-control" id="message" name="message"  cols="30" rows="10" placeholder="Type Your Message"></textarea>
+                      </div>    
+                      <div class="form-check">
+                        <label for="name">Notifications</label>
+                        <div class="notifications">
+                          <div class="notification">
+                            <span>I want to receive notifications</span>
+                            <input type="checkbox" class="form-check-input" id="chbNotifiaction" name="chbNotifiaction" />
+                          </div>
+                        </div>
+                      </div>                  
+                      <button type="button" class="mu-send-btn" id="btnContact">Send Message</button>
+                      <span id="res2" class="rSuccessful hideText">Message was sent!</span>
                     </form>
                   </div>
                 </div>
@@ -1133,20 +1137,21 @@
                 <div class="col-md-6">
                   <div class="mu-contact-right">
                     <div class="mu-contact-widget">
-                      <h3>Office Address</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia temporibus corporis ea non consequatur porro corrupti hic voluptatibus assumenda, doloribus.</p>
+                      <h3>Restaurant location</h3>
+                      <p>Restaurant Deucalion is located in Barcelona, ​​the capital of Catalonia, in the municipality of Gràcia. The famous clock tower in the Plaza de la Vila de Gràcia is surrounded by tempting Catalan bistros and wine bars.</p>
                       <address>
-                        <p><i class="fa fa-phone"></i> (850) 457 6688</p>
-                        <p><i class="fa fa-envelope-o"></i>contact@markups.io</p>
-                        <p><i class="fa fa-map-marker"></i>368 St. Panama City, Florida, USA</p>
+                        <p><i class="fa fa-phone"></i> 	+34 830 931 938</p>
+                        <p><i class="fa fa-envelope-o"></i>dusannajdanovic30@gmail.com</p>
+                        <p><i class="fa fa-map-marker"></i>Gràcia, Barcelona, Spain</p>
                       </address>
                     </div>
                     <div class="mu-contact-widget">
                       <h3>Open Hours</h3>                      
                       <address>
-                        <p><span>Monday - Friday</span> 9.00 am to 12 pm</p>
-                        <p><span>Saturday</span> 9.00 am to 10 pm</p>
-                        <p><span>Sunday</span> 10.00 am to 12 pm</p>
+                        <p><span>Mon - Tue</span> 9:00 AM - 10:00 PM</p>
+                        <p><span>Wed - Thu</span> 9:00 AM - 11:00 PM</p>
+                        <p><span>Fri & Sat</span> 9:00 AM - MIDNIGHT</p>
+                        <p><span>Sun</span> 9:00 AM - 11:00 PM</p>
                       </address>
                     </div>
                   </div>
@@ -1163,7 +1168,7 @@
 
   <!-- Start Map section -->
   <section id="mu-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191560.73992065398!2d2.0001015274472946!3d41.39284058023433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49816718e30e5%3A0x44b0fb3d4f47660a!2z0JHQsNGA0YHQtdC70L7QvdCwLCDQqNC_0LDQvdC40ZjQsA!5e0!3m2!1ssr!2srs!4v1670866097861!5m2!1ssr!2srs" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23938.67628822051!2d2.1331704532630646!3d41.410256159284025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a5e9644c97%3A0xe81ac026b980df66!2zR3LDoGNpYSwg0JHQsNGA0YHQtdC70L7QvdCwLCDQqNC_0LDQvdC40ZjQsA!5e0!3m2!1ssr!2srs!4v1670933301750!5m2!1ssr!2srs" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
   <!-- End Map section -->
 
@@ -1174,15 +1179,19 @@
         <div class="col-md-12">
         <div class="mu-footer-area">
            <div class="mu-footer-social">
-            <a href="#"><span class="fa fa-facebook"></span></a>
-            <a href="#"><span class="fa fa-twitter"></span></a>
-            <a href="#"><span class="fa fa-google-plus"></span></a>
-            <a href="#"><span class="fa fa-linkedin"></span></a>
-            <a href="#"><span class="fa fa-youtube"></span></a>
+            <a href="https://www.facebook.com/" target="_blank"><span class="fa fa-facebook"></span></a>
+            <a href="https://twitter.com/" target="_blank"><span class="fa fa-twitter"></span></a>
+            <a href="https://www.instagram.com/" target="_blank"><span class="fa fa-instagram"></span></a>
+            <a href="https://www.youtube.com/" target="_blank"><span class="fa fa-youtube"></span></a>
+            <div>
+              <a href="sitemap.xml" target="_blank"><span class="fa fa-sitemap"></span></a>
+              <a href="https://www.youtube.com/" target="_blank"><span class="fa fa-file"></span></a>
+            </div> 
           </div>
           <div class="mu-footer-copyright">
-            <p>&copy; Copyright <a rel="nofollow" href="http://markups.io">markups.io</a>. All right reserved.</p>
-          </div>         
+            <p>Copyright @ 2022 | Dušan Najdanović 76/19</p>
+          </div>
+          
         </div>
       </div>
       </div>

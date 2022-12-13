@@ -19,7 +19,6 @@
 .rSuccessful{
     font-size: 16px;
     color: #22f553;
-    margin-left: 10px;
 }
 #btnReservation{
     font-weight: bold;
@@ -38,15 +37,11 @@
     border-bottom: 1px solid #FFA500;
 }
 
-.mu-restaurant-menu li a{
-    border-radius: 5%;
-}
-
 .pErrors{
     display: none;
     background-color: #fa847d;
     color:#ab0f05;
-    padding: 3%;
+    padding: 2%;
 }
 .displayBlock{
     display: block;
@@ -74,13 +69,20 @@
     width: 15%;
     height: 20px;
 }
-.genders {
-    margin: 20px 0;
+
+.genders, .notifications {
+    margin: 20px 0px;
 }
-.gender {
+
+.gender, .notification {
     display: flex;
 }
 
 .gender span {
     width: 10%
+}
+
+.notification span {
+    width: 50%;
+    margin-right: -10%;
 }
