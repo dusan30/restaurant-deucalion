@@ -662,8 +662,29 @@ window.onload = function () {
       contact2.classList.add("hideText");
       return false;
     }
-
   }
+
+  let socialNetworksHref1 = ["https://www.facebook.com/", "https://twitter.com/", "https://www.instagram.com/", "https://www.youtube.com/"];
+  let socialNetworksIcons1 = ["facebook", "twitter", "instagram", "youtube"];
+  let socialNetworksHref2 = ["sitemap.xml", "#"];
+  let socialNetworksIcons2 = ["sitemap", "file"];
+  function displayFooter(){
+    let html = "";
+
+    for(let i = 0; i < socialNetworksHref1.length; i++){
+      html += `<a href="${socialNetworksHref1[i]}" target="_blank"><span class="fa fa-${socialNetworksIcons1[i]}"></span></a>`;
+    }
+    html += "<div>";
+    for(let j = 0; j < socialNetworksHref2.length; j++){
+      html += `<a href="${socialNetworksHref2[j]}" target="_blank"><span class="fa fa-${socialNetworksIcons2[j]}"></span></a>`;
+    }
+    html += "</div>";
+
+    return html;
+  }
+  console.log(displayFooter());
+
+  document.querySelector("#socialNetworks").innerHTML = displayFooter();
 
 
 
