@@ -87,3 +87,31 @@
     width: 50%;
     margin-right: -10%;
 }
+
+#checkSkills{
+    background-color: #FFA500;
+    border: 2px solid #ffffff ;
+    color: #ffffff;
+    margin: 5% 0;
+    font-weight: bold;
+    position: relative;
+}
+#checkSkills:hover{
+    background-color: #ffffff;
+    border: 2px solid #FFA500 ;
+    color: #FFA500;
+}
+
+@media (max-width: 991px) {
+
+    #checkSkills{
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    #authorSkills{
+        text-align: center;
+        }
+}

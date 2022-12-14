@@ -53,8 +53,6 @@ function displayOffers(){
 document.querySelector("#restaurantOffers").innerHTML = displayOffers();
 // DYNAMIC OFFERS - START
 
-
-
 // DYNAMIC OFFERS - END
 
   // DYNAMIC MENU NAMES - START
@@ -411,7 +409,6 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
       });
     });
   }
-
   /**
    * Funkcija za prikazivanje slike u krupnom planu.
    * Takodje funkcija koja prikazuje i prethodnu i sledecu sliku u odnosu na trenutnu.
@@ -693,7 +690,7 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
 
   // AUTHOR SKILLS - START
 
-  let skills = ["HTML", "CSS", "Javascript", "Bootstrap", "jQuery", "Materialize", "PHP", "SQL", "C", "C#"];
+  let skills = ["HTML, CSS", "Bootstrap, Materialize", "Javascript, jQuery","PHP", "SQL", "C", "C#"];
   function displaySkills(){
     let html = "";
     for(let i = 0; i < skills.length; i++){
@@ -701,7 +698,11 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
     }
     return html;
   }
+
   document.querySelector("#authorSkills").innerHTML = displaySkills();
+  $("#checkSkills").click(function(){
+    $("#authorSkills").toggle();
+  })
 
   // AUTHOR SKILLS - END
 
