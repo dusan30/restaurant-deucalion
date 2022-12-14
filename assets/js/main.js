@@ -635,7 +635,7 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
    // DYNAMIC FOOTER - START
   let socialNetworksHref1 = ["https://www.facebook.com/", "https://twitter.com/", "https://www.instagram.com/", "https://www.youtube.com/"];
   let socialNetworksIcons1 = ["facebook", "twitter", "instagram", "youtube"];
-  let socialNetworksHref2 = ["sitemap.xml", "rss.xml", "#"];
+  let socialNetworksHref2 = ["sitemap.xml", "rss.xml", "Dokumentacija.pdf"];
   let socialNetworksIcons2 = ["sitemap", "rss", "file"];
   function displayFooter(){
     let html = "";
