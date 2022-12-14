@@ -193,7 +193,7 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
 // REGULAR EXPRESSIONS - START
   var regexFullName = /^[A-ZŠĐČĆŽ][a-zčćžšđ]{2,11}(\s[A-ZŠĐČĆŽ][a-zšđčćž]{2,15})+$/;
   var regexEmail = /^[a-z][\w\.]*\@[a-z0-9]{3,18}(\.[a-z]{3,5})?(\.[a-z]{2,3})$/;
-  var regexSubject = /^[A-zČĆŽŠĐčćšđž]([A-zčćžšđ\d\.\,\s]){2,29}$/;
+  var regexSubject = /^[A-zČĆŽŠĐčćšđž]([A-zČĆŽŠĐčćšđž\d\.\,\s]){2,29}$/;
   var regexMessage = /[A-z]+/;
    // REGULAR EXPRESSIONS - END
 
