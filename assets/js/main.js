@@ -229,22 +229,25 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   let checkGender2 = 0;
   let checkEmail2 = 0;
   let checkSubject2 = 0;
+  let checkMessage2 = 0;
   let fullName = document.querySelector("#tbFullName");
   let email = document.querySelector("#eEmail");
   let number = document.querySelector("#select2");
   let date = document.querySelector("#datepicker");
-  let message = document.querySelector("#taMessage");
   var reservation = document.querySelector("#res");
   let name2 = document.querySelector("#name");
   let gender2 = document.getElementsByName("rbGender");
   let email2 = document.querySelector("#email");
   let subject2 = document.querySelector("#subject");
+  let message2 = document.querySelector("#message");
   var contact2 = document.querySelector("#res2");
 
 // REGULAR EXPRESSIONS - START
   var regexFullName = /^[A-ZŠĐČĆŽ][a-zčćžšđ]{2,11}(\s[A-ZŠĐČĆŽ][a-zšđčćž]{2,15})+$/;
   var regexEmail = /^[a-z][\w\.]*\@[a-z0-9]{3,18}(\.[a-z]{3,5})?(\.[a-z]{2,3})$/;
-  var regexSubject = /^[A-z]([A-z\d\.\,\s]){2,29}$/;
+  var regexSubject = /^[A-ZČĆŽŠĐ]([A-zčćžšđ\d\.\,\s]){2,29}$/;
+  var regexMessage = /[A-z]+/;
+
    // REGULAR EXPRESSIONS - END
 
   document.querySelector("#btnReservation").addEventListener("click", makeAReservation);
@@ -650,8 +653,31 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
       checkSubject2 = 0;
     }
 
+    // Check Message
+    if (message2.value == "") {
+      message2.classList.remove("greenBorder");
+      message2.classList.add("redBorder");
+      message2.nextElementSibling.textContent = "This field cannot be empty.";
+      message2.nextElementSibling.classList.add("displayBlock");
+      checkMessage2 = 1;
+    }else if (!regexMessage.test(message2.value)) {
+      message2.value = "";
+      message2.classList.remove("greenBorder");
+      message2.classList.add("redBorder");
+      message2.nextElementSibling.textContent = "The message field must contain at least one letter.";
+      message2.nextElementSibling.classList.add("displayBlock");
+      checkMessage2 = 1;
+    }
+    else {
+      message2.classList.remove("redBorder");
+      message2.classList.add("greenBorder");
+      message2.nextElementSibling.textContent = "";
+      message2.nextElementSibling.classList.remove("displayBlock");
+      checkMessage2 = 0;
+    }
+
     // Final Check - CONTACT
-    if (checkName2 + checkGender2 + checkEmail2 + checkSubject2 == 0) {
+    if (checkName2 + checkGender2 + checkEmail2 + checkSubject2 + checkMessage2 == 0) {
       console.log("Message was sent.");
       contact2.classList.remove("hideText");
       contact2.classList.add("showText");

@@ -102,6 +102,18 @@
     color: #FFA500;
 }
 
+#btnContact{
+    background-color: #FFA500;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+#btnContact:hover{
+    background-color: #ffffff;
+    color: #FFA500;
+    border: 2px solid #FFA500;
+}
+
 @media (max-width: 991px) {
 
     #checkSkills{
