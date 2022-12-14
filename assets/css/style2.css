@@ -106,15 +106,13 @@
 /* The class used to display the image in a larger format. - END */
 
 @media (max-width: 991px) {
-
     #checkSkills{
         top: 50%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
-
     #authorSkills{
         text-align: center;
-        }
+    }
 }
