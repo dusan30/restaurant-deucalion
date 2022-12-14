@@ -2,17 +2,17 @@
     font-weight: bold;
     color: #FFA500;
 }
+
+/* Classes to be used for validation - START */
 .redBorder{
     border: 2px solid red;
 }
-
 .greenBorder{
     border: 2px solid #22f553;
 }
 .hideText{
   display: none;
 }
-
 .showText{
   display: block;
 }
@@ -20,23 +20,6 @@
     font-size: 16px;
     color: #22f553;
 }
-#btnReservation{
-    font-weight: bold;
-    border: 2px solid #FFA500;
-}
-#btnReservation:hover{
-    font-weight: bold;
-    border: 2px solid #fff;
-}
-
-.border-orange{
-    border: 1px solid #FFA500;
-}
-
-.mu-restaurant-menu li a:hover{
-    border-bottom: 1px solid #FFA500;
-}
-
 .pErrors{
     display: none;
     background-color: #fa847d;
@@ -46,48 +29,42 @@
 .displayBlock{
     display: block;
 }
-
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1011;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 25px;
-    cursor: pointer;
-}
-
 .d-none {
     display: none;
 }
+/* Classes to be used for validation - END */
 
+#btnReservation{
+    font-weight: bold;
+    border: 2px solid #FFA500;
+}
+#btnReservation:hover{
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+.border-orange{
+    border: 1px solid #FFA500;
+}
+.mu-restaurant-menu li a:hover{
+    border-bottom: 1px solid #FFA500;
+}
 .form-check-input {
     width: 15%;
     height: 20px;
 }
-
 .genders, .notifications {
     margin: 20px 0px;
 }
-
 .gender, .notification {
     display: flex;
 }
-
 .gender span {
     width: 10%
 }
-
 .notification span {
     width: 50%;
     margin-right: -10%;
 }
-
 #checkSkills{
     background-color: #FFA500;
     border: 2px solid #ffffff ;
@@ -101,18 +78,32 @@
     border: 2px solid #FFA500 ;
     color: #FFA500;
 }
-
 #btnContact{
     background-color: #FFA500;
     color: #ffffff;
     border: 2px solid #ffffff;
 }
-
 #btnContact:hover{
     background-color: #ffffff;
     color: #FFA500;
     border: 2px solid #FFA500;
 }
+
+/* The class used to display the image in a larger format. - START */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1011;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    cursor: pointer;
+}
+/* The class used to display the image in a larger format. - END */
 
 @media (max-width: 991px) {
 

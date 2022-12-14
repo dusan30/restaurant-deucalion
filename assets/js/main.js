@@ -18,7 +18,6 @@ window.onload = function () {
   // DYNAMIC NAVIGATION MENU - END
 
   // DYNAMIC COUNTER SECTION - START
-
   var counterSpan = ["Delicios", "Fresh", "Satisfied"];
   var dataCount = [50, 20, 3000];
   var counterP = ["Meals", "Desserts", "Customers"];
@@ -39,8 +38,9 @@ window.onload = function () {
     return html;
   }
   document.querySelector(".mu-counter-nav").innerHTML = displayCounter();
-
 // DYNAMIC COUNTER SECTION - END
+
+// DYNAMIC OFFERS - START
 let offers = ["Delicious food", "Pleasant atmosphere", "Beautiful sea view", "Music program every weekend from 6 pm"];
 
 function displayOffers(){
@@ -51,8 +51,6 @@ function displayOffers(){
   return html;
 }
 document.querySelector("#restaurantOffers").innerHTML = displayOffers();
-// DYNAMIC OFFERS - START
-
 // DYNAMIC OFFERS - END
 
   // DYNAMIC MENU NAMES - START
@@ -73,61 +71,10 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   // DYNAMIC MENU ITEMS - START
   var ids = ["meat", "pizza", "desserts", "drinks"];
 
-  var menuSrc = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg",
-    "4.jpg",
-    "5.jpg",
-    "6.jpg",
-    "7.jpg",
-    "8.jpg",
-    "9.jpg",
-    "10.jpg",
-    "11.jpg",
-    "12.jpg",
-    "13.jpg",
-    "14.jpg",
-    "15.jpg",
-    "16.jpg"
+  var menuSrc = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg"
   ];
-
-  var menuH4AndAlt = [
-    "Burger With Lettuce and Cheese",
-    "Grilled Steak",
-    "Ribeye",
-    "Tenderloin/Filet Mignon",
-    "Capriccio pizza",
-    "Margarita pizza",
-    "Quattro stagioni pizza",
-    "Greek Pizza",
-    "Chocolate cake ",
-    "Fruit cake",
-    "Fruit salad",
-    "American pancakes",
-    "Jacob's Creek Reserve wine",
-    "Heineken Lager Beer",
-    "Brazilian coffee",
-    "Tea"];
-
-  var menuPrice = [
-    "7.50",
-    "15.00",
-    "23.50",
-    "35.00",
-    "13.00",
-    "10.00",
-    "17.50",
-    "15.00",
-    "6.00",
-    "7.00",
-    "8.50",
-    "11.50",
-    "27.00",
-    "5.50",
-    "4.00",
-    "2.00"];
-
+  var menuH4AndAlt = ["Burger With Lettuce and Cheese", "Grilled Steak", "Ribeye", "Tenderloin/Filet Mignon", "Capriccio pizza", "Margarita pizza", "Quattro stagioni pizza", "Greek Pizza", "Chocolate cake", "Fruit cake", "Fruit salad", "American pancakes", "Jacob's Creek Reserve wine", "Heineken Lager Beer", "Brazilian coffee", "Tea"];
+  var menuPrice = ["7.50", "15.00", "23.50", "35.00", "13.00", "10.00", "17.50", "15.00", "6.00", "7.00", "8.50", "11.50", "27.00", "5.50", "4.00", "2.00"];
   var menuDescription = [
     "A classic bacon burger with lettuce, tomato and a good amount of mayonnaise.",
     "Everyone knows about grilled steak. Try it and see how juicy and tasty the grilled steak is.",
@@ -202,12 +149,11 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
     }
     return html;
   }
-
   document.querySelector("#menuItems").innerHTML = displayMenuItems();
   document.querySelector("#menuItems").firstElementChild.classList.add("in", "active");
 // DYNAMIC MENU ITEMS - END
 
-// DYNAMIC OPTION TAGS - START
+// DYNAMIC OPTION TAGS FOR THE NUMBER OF GUESTS - START
   function displayOptionTags() {
     let html = `
               <option value="0">How Many?</option>
@@ -219,8 +165,9 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
     return html;
   }
   document.querySelector("#select2").innerHTML = displayOptionTags();
- // DYNAMIC OPTION TAGS - END
+// DYNAMIC OPTION TAGS FOR THE NUMBER OF GUESTS - END
 
+// VARIABLES FOR VALIDATION - START
   let checkName = 0;
   let checkEmail = 0;
   let checkNumber = 0;
@@ -241,15 +188,16 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   let subject2 = document.querySelector("#subject");
   let message2 = document.querySelector("#message");
   var contact2 = document.querySelector("#res2");
+  // VARIABLES FOR VALIDATION - END
 
 // REGULAR EXPRESSIONS - START
   var regexFullName = /^[A-ZŠĐČĆŽ][a-zčćžšđ]{2,11}(\s[A-ZŠĐČĆŽ][a-zšđčćž]{2,15})+$/;
   var regexEmail = /^[a-z][\w\.]*\@[a-z0-9]{3,18}(\.[a-z]{3,5})?(\.[a-z]{2,3})$/;
   var regexSubject = /^[A-ZČĆŽŠĐ]([A-zčćžšđ\d\.\,\s]){2,29}$/;
   var regexMessage = /[A-z]+/;
-
    // REGULAR EXPRESSIONS - END
 
+   // VALIDATION FOR RESERVATION - START
   document.querySelector("#btnReservation").addEventListener("click", makeAReservation);
 
   function makeAReservation() {
@@ -339,8 +287,8 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
       return false;
     }
   }
+  // VALIDATION FOR RESERVATION - END
  
-
   // DYNAMIC GALLERY IMAGES - START
   function displayGalleryImages() {
     var gallerySrc = [
@@ -392,8 +340,8 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   var pictures = document.querySelectorAll(".mu-imglink");
   
   // Dohvatio sam div sa ID-jem overlay koji sluzi za prikazivanje slika u krupnom planu.
-  // mainImage je div koji prikazuje sliku na koju sam kliknuo.
-  // otherImage - div koji prikazuje ostale slike iz galerije.
+  // Klasa main-image je div koji prikazuje sliku na koju sam kliknuo.
+  // Klasa other-image - div koji prikazuje ostale slike iz galerije.
 
   let overlay = document.querySelector("#overlay");
   let mainImage = document.querySelector(".main-image");
@@ -469,8 +417,7 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   });
   // VIEW IMAGES IN A LARGER FORMAT - END
   
-
-  // DYNAMIC TESTIMONIALS - POCETAK
+  // DYNAMIC TESTIMONIALS - START
   var customerSay = [
     "The food is great! The staff working in the restaurant is phenomenal. I can't wait to come again!",
     "What a beautiful view of the sea, relaxed atmosphere, delicious food, hospitable staff. Everything is on level! All praise for this restaurant!",
@@ -508,7 +455,6 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
     cssEase: "linear",
   });
    // jQuery FOR TESTIMONIAL - END
-
 // DYNAMIC TESTIMONIALS - END
 
   // DYNAMIC CHEFS - START
@@ -551,17 +497,14 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
     return html;
   }
   document.querySelector(".mu-chef-nav").innerHTML = displayChefs();
-
   // DYNAMIC CHEFS - END
 
-  // CONTACT - START
-
-  
+  // VALIDATION CONTACT - START
   document.querySelector("#btnContact").addEventListener("click", sendAMessage);
 
   function sendAMessage(){
 
-    // Check fullName
+    // Check name
     if (name2.value == "") {
       name2.classList.remove("greenBorder");
       name2.classList.add("redBorder");
@@ -687,9 +630,9 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
       return false;
     }
   }
-   // CONTACT - END
+   // VALIDATION CONTACT - END
 
-   // FOOTER - START
+   // DYNAMIC FOOTER - START
   let socialNetworksHref1 = ["https://www.facebook.com/", "https://twitter.com/", "https://www.instagram.com/", "https://www.youtube.com/"];
   let socialNetworksIcons1 = ["facebook", "twitter", "instagram", "youtube"];
   let socialNetworksHref2 = ["sitemap.xml", "rss.xml", "#"];
@@ -711,11 +654,9 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   console.log(displayFooter());
 
   document.querySelector("#socialNetworks").innerHTML = displayFooter();
+   // DYNAMIC FOOTER - END
 
-  // FOOTER - END
-
-  // AUTHOR SKILLS - START
-
+  // DYNAMIC AUTHOR SKILLS - START
   let skills = ["HTML, CSS", "Bootstrap, Materialize", "Javascript, jQuery","PHP", "SQL", "C", "C#"];
   function displaySkills(){
     let html = "";
@@ -729,8 +670,7 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   $("#checkSkills").click(function(){
     $("#authorSkills").toggle();
   })
-
-  // AUTHOR SKILLS - END
+  // DYNAMIC AUTHOR SKILLS - END
 
   // SCROLL to TOP - START
   $(document).ready(function () {
