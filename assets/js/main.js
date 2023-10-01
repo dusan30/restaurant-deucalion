@@ -667,9 +667,10 @@ document.querySelector("#restaurantOffers").innerHTML = displayOffers();
   }
 
   document.querySelector("#authorSkills").innerHTML = displaySkills();
-  $("#checkSkills").click(function(){
+  $(document).ready(function(){
+    $("#checkSkills").click(function(){
     $("#authorSkills").toggle();
-  })
+  });})
   // DYNAMIC AUTHOR SKILLS - END
 
   // SCROLL to TOP - START
